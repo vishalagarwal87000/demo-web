@@ -1,0 +1,30 @@
+.mainbox{
+    box-shadow: 5px 5px 5px grey;
+    margin-top: 20px;
+}
+
+#btn-login:hover{
+    cursor: pointer;
+    color: blue;
+    background-color: black;
+    border-color: black;
+}
+
+#btn-login{
+    background-color: black;
+    border-color: black;
+    color: white;
+}
+
+#login-username{
+    height:auto;
+}
+
+#login-password{
+    height: auto;
+}
+
+.sign-up{
+    color: blue !important;
+    cursor: pointer;
+}

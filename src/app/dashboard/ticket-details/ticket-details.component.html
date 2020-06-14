@@ -1,0 +1,100 @@
+<p-table [value]="tickets">
+    <ng-template pTemplate="header">
+        <tr>
+            <th *ngFor="let col of cols">
+                {{col.header}}
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-ticket>
+        <tr>
+            <td *ngFor="let col of cols">
+                <a (click)="ticketDetails(ticket)">{{ticket[col.field]}}</a>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<div>
+    <button class="add-button" type="button"  pButton (click)="newTicketDialog()">Add Ticket</button>
+</div>
+
+<p-dialog [(header)]="header" [(visible)]="newTicketModal" (onHide)="onReject()" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000">
+    <div class="row">
+        <div class="col-md-2">
+            Person 1
+        </div>
+        <div class="col-md-3">
+            <input [(ngModel)]="personName1" type="text" name="personName1" value="" placeholder="Person 1 Name" [disabled]="disableInput">
+        </div>
+        <div class="col-md-2">
+            Person 2
+        </div>
+        <div class="col-md-3">
+            <input [(ngModel)]="personName2" type="text" name="personName2" value="" placeholder="Person 2 Name" [disabled]="disableInput">
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-md-2">
+            Person 3
+        </div>
+        <div class="col-md-3">
+            <input [(ngModel)]="personName3" type="text" name="personName3" value="" placeholder="Person 3 Name" [disabled]="disableInput">
+        </div>
+        <div class="col-md-2">
+            Person 4
+        </div>
+        <div class="col-md-3">
+            <input [(ngModel)]="personName4" type="text" name="personName4" value="" placeholder="Person 4 Name" [disabled]="disableInput">
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-md-2">
+            Person 5
+        </div>
+        <div class="col-md-3">
+            <input [(ngModel)]="personName5" type="text" name="personName5" value="" placeholder="Person 5 Name" [disabled]="disableInput">
+        </div>
+        <div class="col-md-2">
+            Category
+        </div>
+        <div class="col-md-3">
+            <input [(ngModel)]="category" type="text" name="category" value="" placeholder="Category" [disabled]="disableInput">
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-md-2">
+            No. of Person
+        </div>
+        <div class="col-md-3">
+            <input [(ngModel)]="noOfPerson" type="number" name="noOfPerson" value="" placeholder="Number of Person" [disabled]="disableInput">
+        </div>
+    </div>
+    <p-footer *ngIf="!disableInput">
+        <button type="button" pButton class="fa fa-check" (click)="addTicket()">Submit</button>
+        <button type="button" pButton class="fa fa-times" (click)="newTicketModal=false">Cancel</button>
+    </p-footer>
+</p-dialog>
+
+<p-toast position="center" key="c" [modal]="true" (onClose)="onReject()" [baseZIndex]="15000">
+    <ng-template let-message pTemplate="message">
+        <div style="text-align: center">
+            <i class="fas fa-check" style="font-size: 3em"></i>
+            <h3>{{message1}}</h3>
+            <p>{{message2}}</p>
+        </div>
+    </ng-template>
+</p-toast>
+
+<p-toast position="center" key="e" [modal]="true" (onClose)="onReject()" [baseZIndex]="15000">
+    <ng-template let-message pTemplate="message">
+        <div style="text-align: center">
+            <i class="fas fa-times" style="font-size: 3em"></i>
+            <h3>{{message1}}</h3>
+            <p>{{message2}}</p>
+        </div>
+    </ng-template>
+</p-toast>

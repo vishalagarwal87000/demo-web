@@ -1,4 +1,4 @@
-.mainbox{
+/* .mainbox{
     box-shadow: 5px 5px 5px grey;
     margin-top: 20px;
 }
@@ -24,7 +24,41 @@
     height: auto;
 }
 
-.sign-up{
-    color: blue !important;
-    cursor: pointer;
+ */
+
+.sign-up {
+  color: blue !important;
+  cursor: pointer;
+  justify-content: flex-start;
+}
+
+:host {
+  display: flex;
+  justify-content: center;
+}
+
+.mat-form-field {
+  width: 100%;
+  min-width: 300px;
+}
+
+mat-card {
+  margin-top: 25px;
+}
+
+mat-card-title,
+mat-card-content {
+  display: flex;
+  justify-content: center;
+}
+
+.error {
+  /* padding: 16px; */
+  /* width: 300px; */
+  color: red;
+  /* background-color: red; */
+}
+
+.button {
+  float: right;
 }

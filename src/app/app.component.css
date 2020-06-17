@@ -1,7 +1,14 @@
-.main{
+/* .main{
     max-width: 1350px;
     max-height: 650px;
     width: 1300px;
     height: 600px;
     margin-left: 34px;
+} */
+
+div{
+    width: 100%;
+    min-height: 100vh;
+    min-width: 100vw;
+    height: 100%;
 }

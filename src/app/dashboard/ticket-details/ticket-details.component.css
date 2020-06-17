@@ -1,16 +1,52 @@
-.add-button{
-    margin-top: 10px;
-    color: white;
-    float: right;
-    background-color: black;
+/* 
+
+.input-element {
+  width: 125px;
+} */
+
+.add-button {
+  margin-top: 10px;
+  color: white;
+  float: right;
+  border-radius: 5px;
+  background-color: black;
 }
 
-.add-button:hover{
-    cursor: pointer;
-    color: blue;
-    background-color: black;
+.add-button:hover {
+  cursor: pointer;
+  color: blue;
+  background-color: black;
 }
 
-.input-element{
-    width: 125px;
+.mainbox {
+  box-shadow: 5px 5px 5px grey;
+  margin-bottom: 50px;
+  height: 50px;
+  font: small-caption;
+  font-size: x-large;
+  font-weight: bold;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+}
+
+.table-css {
+  position: absolute;
+  left: 30%;
+  width: 40%;
+}
+
+th.mat-header-cell:last-of-type,
+td.mat-cell:last-of-type,
+td.mat-footer-cell:last-of-type {
+  padding-right: unset !important;
+}
+
+.mat-header-cell {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  background-color: blue;
 }

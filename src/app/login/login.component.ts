@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppComponent } from '../app.component';
 import { AdminService } from '../services/admin.service';
 import { MessageService } from 'primeng/api';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +11,11 @@ import { MessageService } from 'primeng/api';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+  form: FormGroup = new FormGroup({
+    username: new FormControl(''),
+    password: new FormControl(''),
+  });
 
   username: string;
   password: string;
@@ -24,23 +30,31 @@ export class LoginComponent implements OnInit {
   newUserModal: boolean = false;
   message1: string;
   message2: string;
+  userDetails: any;
 
   constructor(private router: Router, private appComponent: AppComponent, private adminService: AdminService, private messageService: MessageService) { }
 
   ngOnInit(): void {
     this.username = "";
     this.password = "";
+    this.userNotFound = false;
   }
 
-  login(username) {
+  login() {
     this.appComponent.showSpinner();
-    this.adminService.getUserDetails(username).subscribe((res: any) => {
-      if (res != null && res == 1) {
-        this.appComponent.hideSpinner();
+    this.username = this.form.value.username;
+    this.password = this.form.value.password;
+    this.adminService.getUserDetails(this.username).subscribe((res: any) => {
+      if (res != null && res != undefined) {
+        this.userDetails = res;
+        localStorage.setItem('userDetails', JSON.stringify(this.userDetails));
         this.router.navigate(this.dashboard);
-      } else {
         this.appComponent.hideSpinner();
+      } else {
+        this.userNotFound = true;
+        this.userDetails = null;
         this.router.navigate(this.log);
+        this.appComponent.hideSpinner();
       }
     })
 

@@ -9,9 +9,19 @@ export class GlobalService {
 
   constructor(private http: HttpClient) { }
 
-  getTickets() {
+  checkUserAccess() {
+    let userDetails = JSON.parse(localStorage.getItem('userDetails'));
+    console.log(userDetails)
+    if (userDetails != null) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  getTickets(data) {
     var url: string = environment.appUrl + "getTicket";
-    return this.http.get(url);
+    return this.http.post(url, data);
   }
 
   addTicket(newTicketDetails) {

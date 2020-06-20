@@ -1,5 +1,9 @@
 <div class="mainbox">Ticket Counter</div>
 <div class="table-css">
+    <button mat-raised-button color="primary" (click)="exportExcel()">Export as Excel</button>
+    <i class="fa fa-download icon-class" aria-hidden="true" (click)="downloadTemplate()"></i>
+    <input type="file" (change)="uploadExcel($event)" accept=".xlsx">
+    <button mat-raised-button class="add-button" type="button" pButton (click)="newTicketDialog()">Add Ticket</button>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
         <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
             <th mat-header-cell *matHeaderCellDef> {{column}} </th>
@@ -11,9 +15,8 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-    <button class="add-button" type="button" pButton (click)="newTicketDialog()">Add Ticket</button>
-    <mat-paginator (page)="getDataOnNext($event)" [pageSizeOptions]="[5, 10, 20]" [length]="length" [pageIndex]="pageIndex" [pageSize]="pageSize"
-        showFirstLastButtons></mat-paginator>
+    <mat-paginator (page)="getDataOnNext($event)" [pageSizeOptions]="pageSizeOptions" [length]="length"
+        [pageIndex]="pageIndex" [pageSize]="pageSize" showFirstLastButtons></mat-paginator>
 </div>
 
 

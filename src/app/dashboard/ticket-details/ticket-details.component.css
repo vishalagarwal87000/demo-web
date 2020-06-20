@@ -4,12 +4,15 @@
   width: 125px;
 } */
 
+.icon-class {
+  margin-left: 10px;
+  font-size: medium;
+}
+
 .add-button {
-  margin-top: 10px;
   color: white;
   float: right;
-  border-radius: 5px;
-  background-color: black;
+  background-color: rgb(2, 2, 2);
 }
 
 .add-button:hover {
@@ -34,8 +37,8 @@ table {
 
 .table-css {
   position: absolute;
-  left: 30%;
-  width: 40%;
+  left: 28%;
+  width: 45%;
 }
 
 th.mat-header-cell:last-of-type,

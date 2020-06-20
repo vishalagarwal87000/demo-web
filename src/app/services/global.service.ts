@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../environments/environment'
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +19,11 @@ export class GlobalService {
     }
   }
 
+  getExportData() {
+    var url: string = environment.appUrl + "getExportData";
+    return this.http.get(url);
+  }
+
   getTickets(data) {
     var url: string = environment.appUrl + "getTicket";
     return this.http.post(url, data);
@@ -33,4 +38,5 @@ export class GlobalService {
     var url: string = environment.appUrl + "getTicketDetails";
     return this.http.post(url, data);
   }
+  
 }
